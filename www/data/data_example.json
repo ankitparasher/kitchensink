@@ -1,12 +1,6 @@
 [
   {
     "id": 1,
-    "name": "List of items",
-    "url": "/views/dblist/index.html",
-    "isModal": false
-  },
-  {
-    "id": 2,
     "name": "Comments",
     "url": "/views/comments/index.html",
     "isModal": false
