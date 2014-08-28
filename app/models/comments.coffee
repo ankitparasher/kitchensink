@@ -1,3 +1,4 @@
+### For future built.io
 Comments = steroids.data.schema.json.toType {
   type: "object"
   properties:
@@ -11,13 +12,15 @@ Comments = steroids.data.schema.json.toType {
       type: "string"
 }
 
-# TODO: Change DB
 CommentsResource = steroids.data.resources.builtio(
   applicationApiKey: 'blt7fb5918197f5a413'
   applicationUid: 'steroids-kitchensink-secret-comments'
   name: 'ks_comments'
   schema: Comments
 )
+###
+
+CommentsResource = steroids.data.resource 'commentsnew'
 
 module = angular.module('CommentsModel', [])
 module.constant('Comments', CommentsResource)
