@@ -1,5 +1,7 @@
 <div ng-controller="IndexCtrl" class="padding">
-
-  DB list will be here
-
+  <ul class="list">
+    <li class="item" ng-repeat="item in items">
+      {{ item.description }}
+    </li>
+  </ul>
 </div>
