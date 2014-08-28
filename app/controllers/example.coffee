@@ -4,16 +4,30 @@ exampleApp.controller 'IndexCtrl', ($scope, ExampleRestangular) ->
 
   $scope.exampleViews = []
 
-  $scope.open = (url) ->
-    steroids.layers.push $scope.exampleViews[url]
+  $scope.open = (url, isModal) ->
+    if isModal
+      steroids.modal.show
+        view: $scope.exampleViews[url]
+        navigationBar: true
+    else
+      steroids.layers.push
+        view: $scope.exampleViews[url]
+        navigationBar: true
 
   $scope.showMenu = () ->
     steroids.drawers.show {
       edge: steroids.screen.edges.LEFT
     }
 
-  ExampleRestangular.all('example').getList().then (examples) ->
-    $scope.examples = examples;
+  ExampleRestangular.all('mpa_example').getList().then (examples) ->
+    $scope.mpaExamples = examples;
+    angular.forEach examples, (val, idx) ->
+      @[val.url] = new steroids.views.WebView val.url
+      @[val.url].preload()
+    , $scope.exampleViews
+
+  ExampleRestangular.all('device_example').getList().then (examples) ->
+    $scope.deviceExamples = examples;
     angular.forEach examples, (val, idx) ->
       @[val.url] = new steroids.views.WebView val.url
       @[val.url].preload()
