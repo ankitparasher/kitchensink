@@ -12,8 +12,6 @@ navbarApp.directive 'navigationBar', ($parse, $compile) ->
       button.onTap = ->
         fn scope
 
-      steroids.logger.log(button.onTap)
-
       return button
 
     leftButtons = []
