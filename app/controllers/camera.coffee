@@ -11,6 +11,7 @@ cameraApp.controller 'IndexCtrl', ($scope)->
   # Camera options
 
   $scope.imageSrc = null
+  $scope.cordovaError = undefined
 
   $scope.cameraOptions =
     fromPhotoLibrary:
@@ -32,18 +33,19 @@ cameraApp.controller 'IndexCtrl', ($scope)->
 
   # Camera failure callback
   cameraError = (message)->
-    navigator.notification.alert 'Cordova says: ' + message, null, 'Capturing the photo failed!'
+    $scope.cordovaError = message
     $scope.showSpinner = false
     $scope.$apply()
 
   # File system failure callback
   fileError = (error)->
-    navigator.notification.alert "Cordova error code: " + error.code, null, "File system error!"
+    $scope.cordovaError = "Cordova error code: " + error.code
     $scope.showSpinner = false
     $scope.$apply()
 
   # Take a photo using the device's camera with given options, callback chain starts
   $scope.getPicture = (options)->
+    $scope.cordovaError = undefined
     navigator.camera.getPicture imageUriReceived, cameraError, options
     $scope.showSpinner = true
     $scope.$apply()

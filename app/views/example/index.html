@@ -1,11 +1,29 @@
 <div ng-controller="IndexCtrl">
+
   <navigation-bar title="Steroids Kitchensink">
-    <left-button icon="/vendor/icons8/menu-32" onTap="showMenu()"></left-button>
+    <left-button icon="/icons/navicon-round@2x" onTap="showMenu()"></left-button>
   </navigation-bar>
+
   <ul class="list">
-    <li class="item item-icon-right" ng-click="open(example.url)" ng-repeat="example in examples">
+
+    <div class="item item-divider">
+      MPA examples
+    </div>
+
+    <li class="item item-icon-right" ng-click="open(example.url, example.isModal)" ng-repeat="example in mpaExamples">
       {{ example.name }}
       <i class="icon ion-ios7-arrow-right"></i>
     </li>
+
+    <div class="item item-divider">
+      Device features
+    </div>
+
+    <li class="item item-icon-right" ng-click="open(example.url, example.isModal)" ng-repeat="example in deviceExamples">
+      {{ example.name }}
+      <i class="icon ion-ios7-arrow-right"></i>
+    </li>
+
   </ul>
+
 </div>

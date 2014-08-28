@@ -1,34 +1,44 @@
 settingsApp = angular.module 'settingsApp', ['navigationBar', 'ngTouch']
 
-settingsApp.controller 'IndexCtrl', ($scope)->
+settingsApp.controller 'IndexCtrl', ($scope, $filter) ->
+
+  ###
+  Navigation
+  ###
 
   $scope.showMenu = ()->
     steroids.drawers.show {
       edge: steroids.screen.edges.LEFT
     }
 
-  _colorSchemes = [
-    ['#c94a4a', '#FFFFFF']
-    ['#75873e', '#FFFFFF']
-    ['#dd97c7', '#000000']
-    ['#74d0ad', '#000000']
-    ['#4c1a2c', '#FFFFFF']
-    ['#c98f57', '#000000']
-    ['#5b8ecb', '#FFFFFF']
-  ]
+  steroids.view.navigationBar.show "Theme"
 
-  $scope.$watch "assignments", () ->
-    diceButton = new steroids.buttons.NavigationBarButton()
-    diceButton.imagePath = "/vendor/icons8/dice-32.png"
-    diceButton.onTap = ->
-      clr = _colorSchemes[Math.floor(Math.random()*_colorSchemes.length)];
-      steroids.view.navigationBar.setAppearance {
-        titleTextColor: clr[1]
-        buttonTintColor: clr[1]
-        tintColor: clr[0]
-      }
+  ###
+  Settings specific
+  ###
 
-    steroids.view.navigationBar.update {
-      buttons:
-        right: [diceButton]
-    }
+  $scope.rgb =
+    red: 0
+    green: 174
+    blue: 239
+
+  $scope.setSelectedColor = () ->
+
+    steroids.view.navigationBar.setAppearance
+      tintColor: $filter("rgbToHex")($scope.rgb)
+      titleColor: "#ffffff"
+      buttonTintColor: "#ffffff"
+
+  #$scope.$watch "rgb", () ->
+  #  steroids.view.navigationBar.setAppearance
+  #    tintColor: $filter("rgbToHex")($scope.rgb)
+  #, true
+
+settingsApp.filter 'rgbToHex', () ->
+
+  componentToHex = (component) ->
+    hex = component.toString 16
+    if hex.length is 1 then "0" + hex else hex
+
+  (rgb) ->
+    "#" + componentToHex(rgb.red) + componentToHex(rgb.green) + componentToHex(rgb.blue)
