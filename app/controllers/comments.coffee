@@ -1,5 +1,8 @@
-commentsApp = angular.module 'commentsApp', ['ngTouch']
+commentsApp = angular.module 'commentsApp', ['CommentsModel', 'ngTouch']
 
-commentsApp.controller 'IndexCtrl', ($scope)->
+commentsApp.controller 'IndexCtrl', ($scope, $timeout, $interval, Comments, user)->
 
-  steroids.view.navigationBar.show "Comments"
+  steroids.view.navigationBar.show "Secret Comments"
+
+  # Generate a user
+  $scope.currentUser = user.generateUser()

@@ -1,11 +1,56 @@
-<div ng-controller="IndexCtrl" class="padding">
+<style>
+  .comment_component .user_name small {
+    color: #999999;
+    font-size: 14px;
+  }
+  .comment_component .item p {
+    white-space: normal;
+  }
+  .comment_component .item p.message {
+    color: #333333;
+  }
+  .comment_component .item-input-inset {
+    padding-left: 70px;
+    min-height: 70px;
+  }
+  .comment_component .item-input-inset img:first-child {
+    position: absolute;
+    top: 14px;
+    left: 15px;
+    max-width: 40px;
+    max-height: 40px;
+    width: 100%;
+    border-radius: 4px;
+  }
+  .comment_component .item-input-wrapper {
+    padding: 6px;
+  }
 
-  <div class="list">
+  .comment_component .gray, .comment_component .gray * {
+    color: #999 !important;
+  }
+  .comment_component .gray img {
+    opacity: 0.5;
+  }
+  .comment_component .message.error {
+    color: red !important;
+  }
+  .comment_component .hide {
+    display: none;
+  }
+</style>
+<div ng-controller="IndexCtrl" class="padding comment_component">
 
-    <div class="item item-divider">
-      For comments
-    </div>
-
-  </div>
+    <form ng-submit="">
+      <div class="item item-input-inset">
+        <img ng-src="{{currentUser.user_image_url}}">
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="Add Comment" ng-model="message">
+        </label>
+        <button class="button button-clear">
+          Send
+        </button>
+      </div>
+    </form>
 
 </div>
