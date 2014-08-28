@@ -4,10 +4,12 @@ animationApp.controller 'IndexCtrl', ($scope)->
 
   steroids.view.navigationBar.show "Animation"
 
-  $scope.performAnimation = (transition, duration)->
+  $scope.animationSpeed = 0.6
+
+  $scope.performAnimation = (transition) ->
 
     anim = new steroids.Animation
       transition: transition
-      duration: duration
+      duration: $scope.animationSpeed
 
     anim.perform()
