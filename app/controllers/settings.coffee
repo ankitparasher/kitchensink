@@ -22,22 +22,16 @@ settingsApp.controller 'IndexCtrl', ($scope, $filter) ->
     green: 174
     blue: 239
 
-  $scope.setSelectedColor = () ->
-
+  $scope.$watch "rgb", () ->
     steroids.view.navigationBar.setAppearance
       tintColor: $filter("rgbToHex")($scope.rgb)
-      titleColor: "#ffffff"
-      buttonTintColor: "#ffffff"
-
-  #$scope.$watch "rgb", () ->
-  #  steroids.view.navigationBar.setAppearance
-  #    tintColor: $filter("rgbToHex")($scope.rgb)
-  #, true
+  , true
 
 settingsApp.filter 'rgbToHex', () ->
 
   componentToHex = (component) ->
-    hex = component.toString 16
+    component = parseInt(component)
+    hex = component.toString(16)
     if hex.length is 1 then "0" + hex else hex
 
   (rgb) ->
