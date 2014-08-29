@@ -19,19 +19,27 @@ exampleApp.controller 'IndexCtrl', ($scope, ExampleRestangular) ->
       edge: steroids.screen.edges.LEFT
     }
 
-  ExampleRestangular.all('mpa_example').getList().then (examples) ->
-    $scope.mpaExamples = examples;
-    angular.forEach examples, (val, idx) ->
-      @[val.url] = new steroids.views.WebView val.url
-      @[val.url].preload()
-    , $scope.exampleViews
+  [
+    {
+      vari: 'mpaExamples'
+      file: 'mpa_example'
+    },
+    {
+      vari: 'deviceExamples',
+      file: 'device_example'
+    },
+    {
+      vari: 'dataExamples',
+      file: 'data_example'
+    }
+  ].forEach (exampleSet)->
 
-  ExampleRestangular.all('device_example').getList().then (examples) ->
-    $scope.deviceExamples = examples;
-    angular.forEach examples, (val, idx) ->
-      @[val.url] = new steroids.views.WebView val.url
-      @[val.url].preload()
-    , $scope.exampleViews
+    ExampleRestangular.all(exampleSet.file).getList().then (examples) ->
+      $scope[exampleSet.vari] = examples;
+      angular.forEach examples, (val, idx) ->
+        @[val.url] = new steroids.views.WebView val.url
+        @[val.url].preload()
+      , $scope.exampleViews
 
   #Native navigation
   steroids.view.navigationBar.show()

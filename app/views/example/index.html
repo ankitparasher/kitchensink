@@ -24,6 +24,15 @@
       <i class="icon ion-ios7-arrow-right"></i>
     </li>
 
+    <div class="item item-divider">
+      Data features
+    </div>
+
+    <li class="item item-icon-right" ng-click="open(example.url, example.isModal)" ng-repeat="example in dataExamples">
+      {{ example.name }}
+      <i class="icon ion-ios7-arrow-right"></i>
+    </li>
+
   </ul>
 
 </div>
