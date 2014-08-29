@@ -43,7 +43,7 @@ commentsApp.controller 'IndexCtrl', ($scope, $timeout, $interval, Comments, user
     $timeout removeFailed, 3000
 
     Comments
-      .del(comment.id)
+      .remove(comment.id)
       .then loadComments, removeFailed
 
   saveComment = (comment, clonedComment) ->

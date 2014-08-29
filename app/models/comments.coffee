@@ -49,8 +49,7 @@ module.factory 'user', ->
   ###
 
 
-  #devroids sandbox resources:add commentsnew related_item_id:integer message:string user_id:integer user_name:string user_image_url:string created_at:date
-  #devroids sandbox resources:add tasks related_item_id:integer title:string user_id:integer is_completed:boolean created_at:integer completed_at:integer
+  #steroids data resources:add commentsnew related_item_id:integer message:string user_id:integer user_name:string user_image_url:string created_at:date
 
   generateUser: ->
     user_name = firstNames[_.random(0, firstNames.length - 1)]
