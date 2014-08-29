@@ -3,6 +3,7 @@ commentsApp = angular.module 'commentsApp', ['CommentsModel', 'ngTouch']
 commentsApp.controller 'IndexCtrl', ($scope, $timeout, $interval, Comments, user)->
 
   steroids.view.navigationBar.show "Secret Comments"
+  steroids.view.setBackgroundColor "#ffffff"
 
   related_item_id = _.random(0, 10000000)
 
