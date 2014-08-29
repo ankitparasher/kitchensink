@@ -1,7 +1,7 @@
 #%RAML 0.8
 title: Steroids Data
 mediaType: application/json
-baseUri: http://rest-api.testgyver.com/v1/
+baseUri: http://rest-api.appgyver.com/v1/
 
 traits:
   - securedBySteroidsApiKey:
@@ -9,11 +9,11 @@ traits:
         steroidsApiKey:
           type: string
           example: identificationhashgoeshere
-          default: 60ed643d1f9b5b6275714f6f739dca45326db344d6957ef318826a0dd03b7be5
+          default: 0754c995ceed62d9cafc59d5d3ad039eae5f8287d0455bb689ae6e3aa1217d40
         steroidsAppId:
           type: integer
           example: 1234
-          default: 12722
+          default: 24155
 
 schemas:
   - commentsnews: '{"$schema":"http://json-schema.org/schema","title":"commentsnew collection","type":"array","items":{"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical commentsnew representation","properties":{"related_item_id":{"type":""},"message":{"type":""},"user_id":{"type":""},"user_name":{"type":""},"user_image_url":{"type":""},"created_at":{"type":""}},"required":[]}}'
