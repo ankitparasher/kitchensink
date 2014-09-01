@@ -11,7 +11,7 @@
     "license": "MIT",
     "private": true,
     "engines": {
-        "steroids": "3.1.9"
+        "steroids": "3.5.0"
     },
     "devDependencies": {
         "grunt-steroids": "0.x"
