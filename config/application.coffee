@@ -49,7 +49,7 @@ steroids.config.drawers =
   options:
     centerViewInteractionMode: "Full"
     closeGestures: ["PanNavBar", "PanCenterView", "TapCenterView"]
-    openGestures: ["PanNavBar", "PanCenterView"]
+    openGestures: ["PanNavBar", "PanBezelCenterView"]
     showShadow: true
     stretchDrawer: true
     widthOfLayerInPixels: 0
