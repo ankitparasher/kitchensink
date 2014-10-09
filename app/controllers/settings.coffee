@@ -23,8 +23,8 @@ settingsApp.controller 'IndexCtrl', ($scope, $filter) ->
     blue: 239
 
   $scope.$watch "rgb", () ->
-    steroids.view.navigationBar.setAppearance
-      tintColor: $filter("rgbToHex")($scope.rgb)
+    steroids.view.navigationBar.setStyleCSS "background-color: #{$filter("rgbToHex")($scope.rgb)}"
+    steroids.tabBar.setStyleCSS "background-color: #{$filter("rgbToHex")($scope.rgb)}"
   , true
 
 settingsApp.filter 'rgbToHex', () ->
