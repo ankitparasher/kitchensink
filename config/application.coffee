@@ -40,19 +40,19 @@ steroids.config.preloads = [
 ]
 
 # -- Drawers
-steroids.config.drawers =
-  left:
-    id: "sidemenu"
-    location: "http://localhost/views/sidemenu/index.html"
-    showOnAppLoad: false
-    widthOfDrawerInPixels: 250
-  options:
-    centerViewInteractionMode: "Full"
-    closeGestures: ["PanNavBar", "PanCenterView", "TapCenterView"]
-    openGestures: ["PanNavBar", "PanBezelCenterView"]
-    showShadow: true
-    stretchDrawer: true
-    widthOfLayerInPixels: 0
+# steroids.config.drawers =
+#   left:
+#     id: "sidemenu"
+#     location: "http://localhost/views/sidemenu/index.html"
+#     showOnAppLoad: false
+#     widthOfDrawerInPixels: 250
+#   options:
+#     centerViewInteractionMode: "Full"
+#     closeGestures: ["PanNavBar", "PanCenterView", "TapCenterView"]
+#     openGestures: ["PanNavBar", "PanBezelCenterView"]
+#     showShadow: true
+#     stretchDrawer: true
+#     widthOfLayerInPixels: 0
 
 
 # -- Navigation Bar --
