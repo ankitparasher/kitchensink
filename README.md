@@ -1,5 +1,10 @@
-AppGyver Steroids Kitchensink
-===========
+# DEPRECATED
+
+The Steroids Kitchensink app has been deprecated in favor of the Supersonic Kitchensink app at https://github.com/AppGyver/supersonic-kitchensink
+
+This repository is preserved only for legacy purposes: the app uses an outdated version of Steroids and does not fully demonstrate the capabilities of Supersonic/Steroids.
+
+## AppGyver Steroids Kitchensink
 
 This work-in-progress project demonstrates the functionalities of the [Steroids.js](http://www.appgyver.com/steroids) hybrid app development platform.
 
